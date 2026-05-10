@@ -1,8 +1,24 @@
-import { Sparkles } from 'lucide-react'
+import { LogOut, Sparkles } from 'lucide-react'
+import { supabase } from '../lib/supabase'
 
-export default function Header() {
+export default function Header({ userName }) {
   return (
-    <header className="flex flex-col items-center gap-3 text-center">
+    <header className="relative flex flex-col items-center gap-3 text-center">
+      {userName != null && (
+        <div className="absolute right-0 top-0 flex items-center gap-3 text-xs text-neutral-400">
+          <span>
+            Hi, <span className="text-neutral-200">{userName || 'there'}</span>
+          </span>
+          <button
+            type="button"
+            onClick={() => supabase.auth.signOut()}
+            className="inline-flex items-center gap-1 rounded-full border border-[#2a2a2a] bg-[#141414]/70 px-3 py-1 text-neutral-300 transition hover:border-[#3a3a3a] hover:text-white"
+          >
+            <LogOut size={12} />
+            Sign out
+          </button>
+        </div>
+      )}
       <div className="inline-flex items-center gap-2 rounded-full border border-[#2a2a2a] bg-[#141414]/70 px-3 py-1 text-xs uppercase tracking-[0.18em] text-neutral-400">
         <Sparkles size={12} className="text-purple-400" />
         Virtual Try-On Studio
