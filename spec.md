@@ -5,7 +5,7 @@ Build a single-page React application that allows users to upload two images, se
 
 ## 2. Tech Stack
 *   **Framework:** React (Vite)
-*   **Styling:** Tailwind CSS
+*   **Styling:** Tailwind CSS, reproducing this style @Captura de pantalla 2026-05-03 a las 10.07.05.png
 *   **Icons:** Lucide-react
 *   **HTTP Client:** Axios (preferred for binary handling)
 
